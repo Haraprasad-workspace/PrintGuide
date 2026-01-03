@@ -67,36 +67,65 @@ function Login() {
   }
 
   return (
-    <main className='flex-1'>
-      <h2>{isSignup ? "Sign up" : "Login"}</h2>
+    <main className="min-h-[80vh] flex items-center justify-center px-4">
+      <div className="w-full max-w-md p-8 rounded-2xl border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm">
 
-      <button onClick={handleGoogleLogin}>Continue with Google</button>
+        {/* Title */}
+        <h2 className="text-2xl font-semibold text-center mb-8 text-white">
+          {isSignup ? "Create Student Account" : "Student Login"}
+        </h2>
 
-      <hr />
+        {/* Google Login */}
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full border border-zinc-700 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-zinc-800 transition-colors text-zinc-300 mb-6"
+        >
+          <span className="text-sm font-medium">Continue with Google</span>
+        </button>
 
-      <input
-        type='email'
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        {/* Divider */}
+        <div className="flex items-center mb-6">
+          <hr className="flex-1 border-zinc-800" />
+          <span className="mx-4 text-xs text-zinc-600 font-medium">OR</span>
+          <hr className="flex-1 border-zinc-800" />
+        </div>
 
-      <input
-        type='password'
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        {/* Email Input */}
+        <input
+          type="email"
+          placeholder="Email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full mb-4 px-4 py-3 bg-zinc-950/50 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-colors"
+        />
 
-      <button onClick={handleEmailAuth}>
-        {isSignup ? "Create account" : "Login with Email"}
-      </button>
+        {/* Password Input */}
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full mb-6 px-4 py-3 bg-zinc-950/50 border border-zinc-800 rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-zinc-600 focus:ring-1 focus:ring-zinc-600 transition-colors"
+        />
 
-      <p onClick={() => setIsSignup(!isSignup)} style={{ cursor: "pointer" }}>
-        {isSignup
-          ? "Already have an account? Login"
-          : "New user? Create account"}
-      </p>
+        {/* Email Auth Button */}
+        <button
+          onClick={handleEmailAuth}
+          className="w-full bg-white text-zinc-950 py-3 rounded-lg font-medium hover:bg-zinc-200 transition-colors"
+        >
+          {isSignup ? "Create Account" : "Login with Email"}
+        </button>
+
+        {/* Toggle Signup/Login */}
+        <p
+          onClick={() => setIsSignup(!isSignup)}
+          className="text-sm text-center text-zinc-500 mt-6 cursor-pointer hover:text-zinc-300 transition-colors"
+        >
+          {isSignup
+            ? "Already have an account? Login"
+            : "New user? Create account"}
+        </p>
+      </div>
     </main>
   );
 }

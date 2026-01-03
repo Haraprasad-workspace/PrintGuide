@@ -16,7 +16,9 @@ function App() {
     return (
       <>
         <Header />
-        <Outlet />
+        <main className="flex-1 w-full">
+          <Outlet />
+        </main>
         <Footer />
       </>
     );

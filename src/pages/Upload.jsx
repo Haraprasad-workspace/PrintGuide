@@ -122,53 +122,94 @@ function Upload() {
      UI (INTENTIONALLY BASIC)
      =============================== */
   return (
-    <main className='flex-1'>
-      <h2>Create Print Order</h2>
+    <main className="max-w-3xl mx-auto py-12 px-6">
+      <h2 className="text-3xl font-semibold mb-8 text-white">Create Print Order</h2>
 
-      <input
-        type='file'
-        multiple
-        accept='application/pdf,image/*'
-        onChange={handleFileChange}
-      />
+      {/* File Upload Section */}
+      <div className="mb-8">
+        <label className="block w-full border-2 border-dashed border-zinc-700 hover:border-zinc-500 rounded-2xl p-8 text-center cursor-pointer transition-colors bg-zinc-900/20">
+          <input
+            type="file"
+            multiple
+            accept="application/pdf,image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <span className="text-zinc-400 font-medium">Click to upload PDFs or Images</span>
+          <p className="text-sm text-zinc-600 mt-2">Max 10MB per file</p>
+        </label>
+
+        {selectedFiles.length > 0 && (
+          <div className="mt-4 space-y-2">
+            {selectedFiles.map((f, i) => (
+              <div key={i} className="flex items-center text-sm text-zinc-300">
+                <span className="mr-2">📄</span> {f.name}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       {analysis && (
-        <>
-          <p>Total Pages: {analysis.totalPages}</p>
-          <button onClick={findBestShops} disabled={loading}>
-            Find Best Shops
+        <div className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6 mb-8 flex items-center justify-between">
+          <div>
+            <p className="text-zinc-400 text-sm uppercase tracking-wide">Analysis</p>
+            <p className="text-xl font-medium text-white">{analysis.totalPages} <span className="text-base text-zinc-500">Total Pages</span></p>
+          </div>
+          <button
+            onClick={findBestShops}
+            disabled={loading}
+            className="bg-white text-zinc-950 px-6 py-2.5 rounded-lg font-medium disabled:opacity-50 hover:bg-zinc-200 transition-colors"
+          >
+            {loading ? "Processing..." : "Find Best Shops"}
           </button>
-        </>
+        </div>
       )}
 
       {shops.length > 0 && (
-        <>
-          <h3>Select a Shop</h3>
+        <div className="space-y-4">
+          <h3 className="text-xl font-medium text-white mb-4">Select a Shop</h3>
 
-          {shops.map((shop) => (
-            <div key={shop.id}>
-              <label>
-                <input
-                  type='radio'
-                  name='shop'
-                  onChange={() => setSelectedShop(shop)}
-                />
-                {shop.name} — ₹{shop.totalPrice}
-                &nbsp;(Queue: {shop.queueLength})
+          <div className="grid gap-3">
+            {shops.map((shop) => (
+              <label
+                key={shop.id}
+                className={`block p-4 rounded-xl border cursor-pointer transition-all duration-200 ${selectedShop?.id === shop.id
+                    ? 'border-white bg-zinc-800'
+                    : 'border-zinc-800 bg-zinc-900/30 hover:border-zinc-700'
+                  }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="radio"
+                      name="shop"
+                      onChange={() => setSelectedShop(shop)}
+                      checked={selectedShop?.id === shop.id}
+                      className="accent-white h-4 w-4"
+                    />
+                    <div>
+                      <p className="font-medium text-white">{shop.name}</p>
+                      <p className="text-xs text-zinc-500">Queue: {shop.queueLength} orders</p>
+                    </div>
+                  </div>
+                  <p className="font-semibold text-white">₹{shop.totalPrice}</p>
+                </div>
               </label>
-            </div>
-          ))}
+            ))}
+          </div>
 
           <button
             onClick={handleCreateOrder}
             disabled={loading || !selectedShop}
+            className="w-full mt-6 bg-white text-zinc-950 py-4 rounded-xl font-semibold text-lg hover:bg-zinc-200 disabled:opacity-50 transition-colors"
           >
-            Confirm Order
+            {loading ? "Creating Order..." : "Confirm & Pay"}
           </button>
-        </>
+        </div>
       )}
 
-      {loading && <p>Processing...</p>}
+      {loading && !shops.length && !analysis && <div className="text-center text-zinc-500 mt-8">Thinking...</div>}
     </main>
   );
 }

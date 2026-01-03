@@ -5,6 +5,9 @@ import {
   doc,
   updateDoc,
   onSnapshot,
+  query,
+  where,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -59,5 +62,21 @@ export function listenToOrder(orderId, callback) {
         ...snapshot.data(),
       });
     }
+  });
+}
+
+export function listenToUserOrders(userId, callback) {
+  const q = query(
+    collection(db, "orders"),
+    where("userId", "==", userId),
+    orderBy("createdAt", "desc")
+  );
+
+  return onSnapshot(q, (snapshot) => {
+    const orders = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    callback(orders);
   });
 }
