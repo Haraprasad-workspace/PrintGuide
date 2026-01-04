@@ -12,12 +12,13 @@ import { updateOrderStatus, deleteOrder } from "../../lib/orders";
 import { Document, Page, pdfjs } from 'react-pdf';
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import { logout } from "../../lib/logout";
 
 // 🔧 Worker Configuration
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 export default function ShopDashboard() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const [orders, setOrders] = useState([]);
   const [shop, setShop] = useState(null);
   const [loading, setLoading] = useState(true);

@@ -10,7 +10,7 @@ function Header() {
 
   async function handleLogout() {
     await logout();
-    navigate("/login");
+    navigate("/login/user");
   }
 
   // Only show header if user is logged in (as per original logic)
