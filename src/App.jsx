@@ -17,6 +17,7 @@ import ShopDashboard from "./pages/shop/ShopDashboard";
 // --- Context & Auth ---
 import { AuthProvider } from "./context/AuthContext";
 import { RequireAuth, RedirectIfAuth } from "./routes/ProtectedRoutes";
+import BackgroundDoodles from "./common/BackgroundDoodles";
 
 function App() {
   // Layout for Students (Header + Footer)
@@ -33,8 +34,9 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <BackgroundDoodles />
         <Routes>
-          
+
           {/* =========================================
               SECTION 1: SHOP OWNER ROUTES
               (No Header/Footer, separate logic)
