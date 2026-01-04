@@ -10,7 +10,7 @@ export function RequireAuth() {
   if (loading) return null;
 
   if (!currentUser) {
-    return <Navigate to='/login/user' replace />;
+    return <Navigate to='/login' replace />;
   }
 
   if (currentUser.role !== "user") {
@@ -29,7 +29,7 @@ export function RequireShop() {
   if (loading) return null;
 
   if (!currentUser) {
-    return <Navigate to='/shop/login' replace />;
+    return <Navigate to='/login' replace />;
   }
 
   if (currentUser.role !== "shop") {
@@ -52,6 +52,6 @@ export function RedirectIfAuth() {
   return currentUser.role === "shop" ? (
     <Navigate to='/shop/dashboard' replace />
   ) : (
-    <Navigate to='/upload' replace />
+    <Navigate to='/user/dashboard' replace />
   );
 }
