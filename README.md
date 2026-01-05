@@ -1,18 +1,104 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 DocDash
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/placeholder/docdash-banner.png" alt="DocDash Banner" width="600"/>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**DocDash** is a modern, intuitive document management and analysis platform for individuals and shop owners. Built with React, Firebase, and Vite, DocDash makes document upload, preview, and analysis seamless and secure.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🗂️ Table of Contents
+- [Features](#features)
+- [Quickstart](#quickstart)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Feature                | Description                                      |
+|------------------------|--------------------------------------------------|
+| 🔒 Authentication      | Secure login/register for users and shop owners   |
+| 📤 Upload & Preview    | Upload documents and preview files instantly      |
+| 📊 PDF Analysis        | Get insights from your PDF files                  |
+| 🛒 Shop Dashboard      | Manage orders and documents for your shop         |
+| ☁️ Cloudinary Storage  | Fast, reliable file storage                      |
+| 🛡️ Protected Routes    | Secure access to sensitive pages                  |
+| 🎨 Responsive UI       | Modern design with custom doodle backgrounds      |
+
+---
+
+## ⚡ Quickstart
+
+1. **Clone the repo:**
+	```bash
+	git clone https://github.com/Haraprasad-workspace/DocDash.git
+	cd DocDash
+	```
+2. **Install dependencies:**
+	```bash
+	npm install
+	```
+3. **Configure environment:**
+	- Copy `.env.example` to `.env` and add your Firebase credentials.
+4. **Run locally:**
+	```bash
+	npm run dev
+	```
+5. **Open in browser:**
+	- Visit [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🏗️ Project Structure
+
+```text
+src/
+├─ assets/      # Static assets
+├─ common/      # Shared UI components
+├─ context/     # React context providers
+├─ lib/         # Utility libraries (file analysis, cloudinary, etc.)
+├─ pages/       # Application pages (Dashboard, Home, Login, Register, Upload, etc.)
+├─ routes/      # Route protection components
+├─ services/    # Service layer for shops and orders
+```
+
+---
+
+## 🛠️ Usage
+
+1. **Sign up or log in** as a user or shop owner.
+2. **Upload documents** and view file previews.
+3. **Access your dashboard** for order management.
+4. **Analyze PDFs** and other files for instant insights.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! To get started:
+- Fork the repository
+- Create a new branch (`git checkout -b feature/your-feature`)
+- Commit your changes
+- Open a pull request
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 🙏 Acknowledgements
+
+- [React](https://react.dev/)
+- [Firebase](https://firebase.google.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Vite](https://vitejs.dev/)
