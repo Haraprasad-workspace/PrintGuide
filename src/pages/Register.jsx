@@ -81,38 +81,57 @@ function Register() {
             Create an account
           </h2>
           <p className='mt-2 text-sm text-brand-text-muted'>
-            Join PrintZap today
+            Join DocDash today
           </p>
         </div>
 
         <div className='mt-8 space-y-6'>
           {/* Role Selection */}
-          <div>
-            <label className='block text-sm font-medium text-brand-text-primary mb-2'>
-              I am a:
-            </label>
-            <div className='grid grid-cols-2 gap-3'>
+          <div className="space-y-3">
+            <p className="text-center text-xs font-bold uppercase tracking-widest text-brand-text-muted">
+              I am a
+            </p>
+            <div className="grid grid-cols-2 gap-4">
               <button
-                type='button'
+                type="button"
                 onClick={() => setRole("user")}
-                className={`py-3 px-4 rounded-xl font-medium transition-all ${
-                  role === "user"
-                    ? "bg-btn-primary-bg text-btn-primary-text shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                className={`group relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${role === "user"
+                    ? "bg-brand-surface-primary border-brand-text-primary shadow-lg scale-[1.02]"
+                    : "bg-white border-border-default hover:border-brand-text-muted opacity-80"
+                  }`}
               >
-                👤 Student
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl mb-2 transition-colors ${role === "user" ? "bg-white" : "bg-gray-100"}`}>
+                  👤
+                </div>
+                <span className={`font-bold transition-colors ${role === "user" ? "text-brand-text-primary" : "text-brand-text-muted"}`}>
+                  Student / User
+                </span>
+                {role === "user" && (
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-text-primary text-white rounded-full flex items-center justify-center text-[10px] shadow-sm animate-in zoom-in duration-300">
+                    ✓
+                  </div>
+                )}
               </button>
+
               <button
-                type='button'
+                type="button"
                 onClick={() => setRole("shop")}
-                className={`py-3 px-4 rounded-xl font-medium transition-all ${
-                  role === "shop"
-                    ? "bg-btn-primary-bg text-btn-primary-text shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                className={`group relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all duration-300 ${role === "shop"
+                    ? "bg-brand-surface-primary border-brand-text-primary shadow-lg scale-[1.02]"
+                    : "bg-white border-border-default hover:border-brand-text-muted opacity-80"
+                  }`}
               >
-                🖨️ Print Shop
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl mb-2 transition-colors ${role === "shop" ? "bg-white" : "bg-gray-100"}`}>
+                  🖨️
+                </div>
+                <span className={`font-bold transition-colors ${role === "shop" ? "text-brand-text-primary" : "text-brand-text-muted"}`}>
+                  Print Shop
+                </span>
+                {role === "shop" && (
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-text-primary text-white rounded-full flex items-center justify-center text-[10px] shadow-sm animate-in zoom-in duration-300">
+                    ✓
+                  </div>
+                )}
               </button>
             </div>
           </div>

@@ -25,7 +25,7 @@ function Login() {
         uid: user.uid,
         name: user.displayName || "",
         email: user.email,
-        role: "student",
+        role: "user",
         createdAt: serverTimestamp(),
       });
     }

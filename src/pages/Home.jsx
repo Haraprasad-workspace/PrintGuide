@@ -32,7 +32,7 @@ const Home = () => {
                 onClick={() => navigate("/login")}
                 className="px-8 py-4 text-lg font-semibold rounded-full bg-btn-secondary-bg text-btn-secondary-text border border-btn-secondary-border hover:bg-btn-secondary-hover hover:border-brand-accent transition-all duration-300"
               >
-                Student Login
+                User Login
               </button>
             </div>
           </div>
@@ -43,7 +43,7 @@ const Home = () => {
       <section className="bg-section-bg py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-text-primary">Why PrintZap?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-brand-text-primary">Why DocDash?</h2>
             <p className="mt-4 text-lg text-brand-text-muted">Efficiency, speed, and reliability.</p>
           </div>
 
@@ -77,7 +77,7 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-bold text-brand-text-primary mb-3">Secure Payment</h3>
               <p className="text-brand-text-body leading-relaxed">
-                Seamless and secure payments via UPI or Cards. Experience a cashless workflow designed for students.
+                Seamless and secure payments via UPI or Cards. Experience a cashless workflow designed for users.
               </p>
             </div>
           </div>

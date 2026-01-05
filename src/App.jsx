@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
-// --- Student / User ---
+// --- User / User ---
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import Home from "./pages/Home";

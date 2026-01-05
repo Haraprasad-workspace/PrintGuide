@@ -14,20 +14,20 @@ service cloud.firestore {
 
     // --- 📄 ORDERS COLLECTION ---
     match /orders/{orderId} {
-      // 1. Read: Any logged-in user (Students need to see status, Shops need to see queue)
+      // 1. Read: Any logged-in user (Users need to see status, Shops need to see queue)
       allow read: if request.auth != null;
 
-      // 2. Create: Any logged-in user (Students creating an order)
+      // 2. Create: Any logged-in user (Users creating an order)
       allow create: if request.auth != null;
 
-      // 3. Update: Student (cancel) OR Shop Owner (update status)
+      // 3. Update: User (cancel) OR Shop Owner (update status)
       // Checks if the user ID matches either the 'userId' or 'shopId' on the document
       allow update: if request.auth != null && (
         request.auth.uid == resource.data.userId || 
         request.auth.uid == resource.data.shopId
       );
 
-      // ✅ 4. DELETE: Student OR Shop Owner
+      // ✅ 4. DELETE: User OR Shop Owner
       // This is the fix for your "Missing Permissions" error.
       allow delete: if request.auth != null && (
         request.auth.uid == resource.data.userId || 

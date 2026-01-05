@@ -23,7 +23,7 @@ function Header() {
             onClick={() => navigate("/")}
           >
             <span className='text-2xl font-bold tracking-tight text-brand-text-primary group-hover:opacity-80 transition-opacity'>
-              PrintZap
+              DocDash
             </span>
           </div>
 
@@ -41,7 +41,7 @@ function Header() {
                   to={`/${currentUser.role}/dashboard`}
                   className='text-brand-text-muted hover:text-brand-text-primary font-medium transition-colors'
                 >
-                  History
+                  Dashboard
                 </Link>
                 <button
                   onClick={handleLogout}
@@ -93,6 +93,51 @@ function Header() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className='md:hidden pb-4 pt-2 border-t border-border-default'>
+            <div className='flex flex-col space-y-4 px-2'>
+              {currentUser ? (
+                <>
+                  <Link
+                    to='/user/upload'
+                    onClick={() => setIsMenuOpen(false)}
+                    className='text-brand-text-muted hover:text-brand-text-primary font-medium transition-colors py-2'
+                  >
+                    New Order
+                  </Link>
+                  <Link
+                    to={`/${currentUser.role}/dashboard`}
+                    onClick={() => setIsMenuOpen(false)}
+                    className='text-brand-text-muted hover:text-brand-text-primary font-medium transition-colors py-2'
+                  >
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsMenuOpen(false);
+                    }}
+                    className='w-full text-left py-2 text-btn-secondary-text font-medium transition-colors'
+                  >
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    navigate("/login");
+                    setIsMenuOpen(false);
+                  }}
+                  className='w-full text-left py-2 text-btn-primary-bg font-bold transition-colors'
+                >
+                  Log In
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
