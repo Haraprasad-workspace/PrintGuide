@@ -138,7 +138,6 @@ const Dashboard = () => {
                   <div className='flex -space-x-3 overflow-hidden py-2 pl-1'>
                     {order.files?.slice(0, 3).map((f, i) => (
                       <Link key={i} to={f.url} target='_blank'>
-                        {console.log(f)}
                         <div
                           className='flex-shrink-0 h-10 w-10 rounded-full ring-2 ring-card-bg bg-inset-panel flex items-center justify-center text-lg shadow-sm'
                           title={f.name}

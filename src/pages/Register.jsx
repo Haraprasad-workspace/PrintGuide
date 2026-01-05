@@ -42,7 +42,7 @@ function Register() {
       }
     } catch (err) {
       console.error(err);
-      setError("Failed to sign up with Google.");
+      setError("Failed to register with Google.");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ function Register() {
                   👤
                 </div>
                 <span className={`font-bold transition-colors ${role === "user" ? "text-brand-text-primary" : "text-brand-text-muted"}`}>
-                  Student / User
+                  User
                 </span>
                 {role === "user" && (
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-text-primary text-white rounded-full flex items-center justify-center text-[10px] shadow-sm animate-in zoom-in duration-300">

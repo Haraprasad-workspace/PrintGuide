@@ -80,7 +80,7 @@ function Login() {
             {isSignup ? "Create an account" : "Welcome back"}
           </h2>
           <p className="mt-2 text-sm text-brand-text-muted">
-            {isSignup ? "Sign up to start printing" : "Sign in to your account"}
+            {isSignup ? "Login to start printing" : "Sign in to your account"}
           </p>
         </div>
 
@@ -178,7 +178,7 @@ function Login() {
                 onClick={() => setIsSignup(!isSignup)}
                 className="font-medium text-brand-text-link hover:text-brand-text-link-hover transition-colors underline decoration-dotted underline-offset-4"
               >
-                {isSignup ? "Log in" : "Sign up"}
+                {isSignup ? "Log in" : "Register"}
               </button>
             </p>
           </div>
